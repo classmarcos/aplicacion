@@ -50,5 +50,13 @@
 		}
 
 
+		function count_filtered()
+		{
+			$this->_get_datatables_query();
+			$query = $this->db->get();
+			return $query->num_rows();
+		}
+
+
 	}
 ?>
