@@ -74,6 +74,15 @@
 
 		}
 
+		public function save($data){
+			$this->db->insert($this->table,$data);
+			return $this->db->insert_id();
+		}
+
+		public function delete_by_id(){
+			$this->db->where('id',$id);
+			$this->db->delete($this->table);
+		}
 
 	}
 ?>
