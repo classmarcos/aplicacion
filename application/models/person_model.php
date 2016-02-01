@@ -57,6 +57,16 @@
 			return $query->num_rows();
 		}
 
+		public function get_by_id($id){
+			$this->db->from($this->table);
+			$this->db->where('id',$id);
+			$query = $this->db->get();
+
+			return $query->row();
+
+
+		}
+
 
 	}
 ?>
