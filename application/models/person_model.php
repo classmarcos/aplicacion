@@ -10,7 +10,7 @@
 		var $column = array('firstname','lastname','gender','address','dob');
 		var $order = array('id' => 'desc');
 		
-		function __construct(){
+		public function __construct(){
 			parent::__construct();
 			$this->load->database();
 		}
@@ -39,7 +39,7 @@
 			if(isset($_POST['order'])){
 				$this->db->order_by(key($order),$order[key($order)]);
 			}
-			elseif (isset($this->order)) {
+			else if (isset($this->order)) {
 				$order = $this->order;
 				$this->db->order_by(key($order),$order[key($order)]);
 			}
