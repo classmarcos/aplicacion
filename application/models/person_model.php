@@ -5,6 +5,10 @@
 	* 
 	*/
 	class Person_model extends CI_Model{
+
+		var $table = 'persons';
+		var $column = array('firstname','lastname','gender','address','dob');
+		var $order = array('id' => 'desc');
 		
 		function __construct(){
 			parent::__construct();
