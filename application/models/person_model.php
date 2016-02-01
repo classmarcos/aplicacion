@@ -57,6 +57,11 @@
 			return $query->num_rows();
 		}
 
+		public function count_all(){
+			$this->db->from($this->table);
+			return $this->db->count_all_results();
+		}
+
 
 	}
 ?>
