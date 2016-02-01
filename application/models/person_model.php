@@ -79,7 +79,7 @@
 			return $this->db->insert_id();
 		}
 
-		public function delete_by_id(){
+		public function delete_by_id($id){
 			$this->db->where('id',$id);
 			$this->db->delete($this->table);
 		}
