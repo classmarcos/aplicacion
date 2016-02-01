@@ -67,7 +67,7 @@
 			return $query->row();
 
 		}
-		
+
 		public function count_all(){
 			$this->db->from($this->table);
 			return $this->db->count_all_results();
@@ -83,6 +83,13 @@
 			$this->db->where('id',$id);
 			$this->db->delete($this->table);
 		}
+
+		public function update($where,$data){
+
+			$this->db->update($this->table,$data,$where);
+			return $this->db->affected_rows();
+		}
+
 
 	}
 ?>
