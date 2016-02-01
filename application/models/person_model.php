@@ -40,5 +40,13 @@
 				$this->db->order_by(key($order),$order[key($order)]);
 			}
 		}
+
+
+		function count_filtered(){
+
+			$this->_get_datatables_query();
+			$query = $this->db->get();
+			return $query->num_rows();
+		}
 	}
 ?>
