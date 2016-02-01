@@ -57,13 +57,20 @@
 			return $query->num_rows();
 		}
 
-		public function get_by_id($id){
+
+		public function get_by_id($id)
+		{
 			$this->db->from($this->table);
-			$this->db->where('id',$id);
+			$this->db->where('id', $id);
 			$query = $this->db->get();
 
 			return $query->row();
 
+		}
+		
+		public function count_all(){
+			$this->db->from($this->table);
+			return $this->db->count_all_results();
 
 		}
 
