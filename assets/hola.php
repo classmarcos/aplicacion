@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 <html>
-    <head>
+<head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Ajax CRUD with Bootstrap modals and Datatables</title>
-        <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link href="assets/datatables/css/dataTables.bootstrap.css" rel="stylesheet">
         <link href="assets/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet">
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -17,7 +16,7 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
     </head>
-<body>
+        <body>
 	<div class="container">
 		<h1 style="font-size:20pt">Ajax CRUD with Bootstrap modals and Datatables with Server side Validation</h1>
 		<h3>Person Data</h3>
@@ -39,7 +38,7 @@
             </thead>
             <tbody>
             </tbody>
- 
+
             <tfoot>
             <tr>
                 <th>First Name</th>
@@ -59,46 +58,5 @@
 
 
 
-
-
-    <script src="<?php echo base_url('assets/jquery/jquery-2.1.4.min.js')?>"></script>
-    <script src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js')?>"></script>
-    <script src="<?php echo base_url('assets/datatables/js/jquery.dataTables.min.js')?>"></script>
-    <script src="<?php echo base_url('assets/datatables/js/dataTables.bootstrap.js')?>"></script>
-    <script src="<?php echo base_url('assets/bootstrap-datepicker/js/bootstrap-datepicker.min.js')?>"></script>
-
-
-
-    <script type="text/javascript">
-
-        var save_method;
-        var table;
-        
-        $(document).ready(function(){
-            //cargar datos al datatable
-            table = $('#table').DataTable({
-                "processing":true,
-                "serverSide":true,
-                "order":[],
-
-                "ajax":{
-                    "url":"<?php echo site_url('person/ajax_list')?>",
-                    "type":"POST"
-                },
-
-                "ColumnDefs":[{
-                    "targets":[-1],
-                    "orderable":false,
-                }],
-
-
-
-            });
-        });
-
-    </script>
-
-
 </body>
 </html>
-
