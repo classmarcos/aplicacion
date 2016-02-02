@@ -79,6 +79,16 @@
                 "serverSide":true,
                 "order":[],
 
+                "ajax":{
+                    "url":"<?php echo site_url('person/ajax_list')?>",
+                    "type":"POST"
+                },
+
+                "ColumnDefs":[{
+                    "targets":[-1],
+                    "orderable":false,
+                }],
+
 
 
             });
