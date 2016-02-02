@@ -3,8 +3,8 @@
 
 	class Person extends CI_Controller{
 
-		public function __contruct(){
-			parent::__contruct();
+		public function __construct(){
+			parent::__construct();
 			$this->load->model('person_model','person');
 		}
 
@@ -83,45 +83,51 @@
 		}
 
 		public function _validate(){
-			$data=array();
-			$data['error_string'] = array();
-			$data['inputerror'] = array();
-			$data['status'] = TRUE;
-
-			if($this->input->post('firstName')==''){
-				$data['inputerror'][] = 'firstName';
-				$data['error_string'][]='First Name is required';
-				$data['status'] = FALSE;
-			}
-
-			if($this->input->post('lastName')==''){
-				$data['inputerror'][]='lastName';
-				$data['error_string'][]='Last Name is required';
-				$data['status']=FALSE;
-			}
-
-			if($this->input->post('dob')==''){
-				$data['inputerror'][]='dob';
-				$data['error_string'][]='Date of Birth is required';
-				$data['status']=FALSE;
-			}
-
-			if($this->input->post('gender')==''){
-				$data['inputerror'][]='gender';
-				$data['error_string'][]='Please select gender';
-				$data['status']=FALSE;
-			}
-
-			if($this->input->post('address')==''){
-				$data['inputerror'][]='address';
-				$data['error_string'][]='Address is required';
-				$data['status']=FALSE;
-			}
-
-			if($data['status']==FALSE){
-				echo json_encode($data);
-				exit();
-			}
+			    $data = array();
+        $data['error_string'] = array();
+        $data['inputerror'] = array();
+        $data['status'] = TRUE;
+ 
+        if($this->input->post('firstName') == '')
+        {
+            $data['inputerror'][] = 'firstName';
+            $data['error_string'][] = 'First name is required';
+            $data['status'] = FALSE;
+        }
+ 
+        if($this->input->post('lastName') == '')
+        {
+            $data['inputerror'][] = 'lastName';
+            $data['error_string'][] = 'Last name is required';
+            $data['status'] = FALSE;
+        }
+ 
+        if($this->input->post('dob') == '')
+        {
+            $data['inputerror'][] = 'dob';
+            $data['error_string'][] = 'Date of Birth is required';
+            $data['status'] = FALSE;
+        }
+ 
+        if($this->input->post('gender') == '')
+        {
+            $data['inputerror'][] = 'gender';
+            $data['error_string'][] = 'Please select gender';
+            $data['status'] = FALSE;
+        }
+ 
+        if($this->input->post('address') == '')
+        {
+            $data['inputerror'][] = 'address';
+            $data['error_string'][] = 'Addess is required';
+            $data['status'] = FALSE;
+        }
+ 
+        if($data['status'] === FALSE)
+        {
+            echo json_encode($data);
+            exit();
+        }
 		}
 	}
 ?>
