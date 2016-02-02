@@ -130,6 +130,19 @@
             $('.modal-title').text('Add Person');
         }
 
+
+        $(document).ready(function() {
+            var table = $('#table').DataTable();
+
+            $('#table tbody').on('click', 'tr', function () {
+                var data = table.row( this ).data();
+                alert( 'You clicked on '+data[0]+'\'s row' );
+            } );
+        } );
+
+
+
+
         function edit_person(id){
             save_method = 'update';
             $('#form')[0].reset();
