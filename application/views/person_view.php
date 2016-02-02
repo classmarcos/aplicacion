@@ -130,7 +130,7 @@
             $('.modal-title').text('Add Person');
         }
 
-        function edit_person(){
+        function edit_person(id){
             save_method = 'update';
             $('#form')[0].reset();
             $('.form-group').removeClass('has-error');
@@ -141,7 +141,7 @@
                 type:"GET",
                 dataType:"JSON",
                 success: function(data){
-                    $('[name="id"]').val(dtaa.id);
+                    $('[name="id"]').val(data.id);
                     $('[name="firstName"]').val(data.firstName);
                     $('[name="lastName"]').val(data.lastName);
                     $('[name="gender"]').val(data.gender);
@@ -283,7 +283,7 @@
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 <!-- End Bootstrap modal -->
-    
+
 
 </body>
 </html>
