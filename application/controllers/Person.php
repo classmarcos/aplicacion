@@ -21,16 +21,13 @@
 			foreach ($list as $person) {
 				$no++;
 				$row=array();
+				$row[]=$person->id;
 				$row[]=$person->firstName;
 				$row[]=$person->lastName;
 				$row[]=$person->gender;
 				$row[]=$person->address;
 				$row[]=$person->dob;
-
-				//add html for action
-				 $row[] = '<a class="btn btn-sm btn-primary" href="javascript:void()" title="Edit" onclick="edit_person('."'".$person->id."'".')"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
-                  <a class="btn btn-sm btn-danger" href="javascript:void()" title="Hapus" onclick="delete_person('."'".$person->id."'".')"><i class="glyphicon glyphicon-trash"></i> Delete</a>';
-         
+				
 				$data[]=$row;
 			}
 

@@ -29,12 +29,13 @@
         <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
                  <thead>
                 <tr>
+                    <th>ID</th>
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>Gender</th>
                     <th>Address</th>
                     <th>Date of Birth</th>
-                    <th style="width:125px;">Action</th>
+
                 </tr>
             </thead>
             <tbody>
@@ -42,12 +43,13 @@
  
             <tfoot>
             <tr>
+                <th>ID</th>
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Gender</th>
                 <th>Address</th>
                 <th>Date of Birth</th>
-                <th>Action</th>
+
             </tr>
             </tfoot>
 
@@ -131,19 +133,53 @@
         }
 
 
-        $(document).ready(function() {
+       /* $(document).ready(function() {
             var table = $('#table').DataTable();
 
             $('#table tbody').on('click', 'tr', function () {
                 var data = table.row( this ).data();
-                alert( 'You clicked on '+data[0]+'\'s row' );
+                alert( 'You clicked on '+edit_person(1)+'\'s row' );
             } );
-        } );
+        } );*/
+
+         $(document).ready(function() {
+         var table = $('#table').DataTable();
+
+             save_method = 'update';
+             $('#form')[0].reset();
+             $('.form-group').removeClass('has-error');
+             $('.help-block').empty();
+
+         $('#table tbody').on('click', 'tr', function () {
+           // $(this).edit_person(1);
+         ///alert( 'You clicked on '+edit_person(1)+'\'s row' );
+             var data = table.row( this ).data();
+             $.ajax({
+
+                 url:"<?php echo site_url('person/ajax_edit')?>/"+data[0],
+                 type:"GET",
+                 dataType:"JSON",
+                 success: function(data){
+                     $('[name="id"]').val(data.id);
+                     $('[name="firstName"]').val(data.firstName);
+                     $('[name="lastName"]').val(data.lastName);
+                     $('[name="gender"]').val(data.gender);
+                     $('[name="address"]').val(data.address);
+                     $('[name="dob"]').datepicker('update',data.dob);
+                     $('#modal_form').modal('show');
+                     $('.modal-title').text('Edit Person');
+                 },
+                 error: function(JqXHR, textStatus,errorThown){
+                     alert('Error get data from ajax');
+                 }
+
+             });
+         } );
+         } );
 
 
 
-
-        function edit_person(id){
+        /*function edit_person(id){
             save_method = 'update';
             $('#form')[0].reset();
             $('.form-group').removeClass('has-error');
@@ -168,7 +204,7 @@
                 }
 
             });
-        }
+        }*/
 
         function reload_table(){
             table.ajax.reload(null,false);
