@@ -7,7 +7,7 @@
 	class Person_model extends CI_Model{
 
 		var $table = 'persons';
-		var $column = array('firstname','lastname','gender','address','dob');
+		var $column = array('firstName','lastName','gender','address','dob');
 		var $order = array('id' => 'desc');
 		
 		public function __construct(){

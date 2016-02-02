@@ -28,11 +28,9 @@
 				$row[]=$person->dob;
 
 				//add html for action
-				$row[]='<a class="btn btn-sm btn-primary" href="javascript:void()" title="Edit" onClick="edit_person('."'".$person->id."'".')">
-							<i class="glyphicon glyphicon-pencil"></i>Edit</a>
-				<a class="btn btn-sm btn-danger" href="javascript:void()" title="Hapus" onClick="delete_person('."'".$person->id."'".')"> 
-							<i class="glyphicon glyphicon-trash"></i>Delete</a>';
-				
+				 $row[] = '<a class="btn btn-sm btn-primary" href="javascript:void()" title="Edit" onclick="edit_person('."'".$person->id."'".')"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+                  <a class="btn btn-sm btn-danger" href="javascript:void()" title="Hapus" onclick="delete_person('."'".$person->id."'".')"><i class="glyphicon glyphicon-trash"></i> Delete</a>';
+         
 				$data[]=$row;
 			}
 
@@ -42,7 +40,7 @@
 							"recordsFiltered"=>$this->person->count_filtered(),
 							"data"=>$data,
 							);
-			//output to json format
+			
 			echo json_encode($output);
 		}
 
