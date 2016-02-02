@@ -94,7 +94,104 @@
 
 
             });
+
+            $('.datepicker').datepicker({
+                autoclose:true,
+                format:"yyyy-mm-dd",
+                todayHighlight:true,
+                orientation:"top auto",
+                todayBtn:true,
+                todayHighlight:true,
+            });
+
+            $("input").change(function(){
+                $(this).parent().parent().removeClass('has-error');
+                $(this).next().empty();
+            });
+
+            $("textarea").change(function(){
+                $(this).parent().parent().removeClass('has-error');
+                $(this).next().empty();
+            });
+
+            $("select").change(function(){
+                $(this).parent().parent().removeClass('has-error');
+                $(this).next().empty();
+            });
+
         });
+
+        function add_person(){
+            save_method = 'add';
+            $('#form')[0].reset();
+            $('.form-group').removeClass('has-error');
+            $('.help-block').empty();
+            $('#modal_form').modal('show');
+            $('.modal-title').text('Add Person');
+        }
+
+        function edit_person(){
+            save_method = 'update';
+            $('#form')[0].reset();
+            $('.form-group').removeClass('has-error');
+            $('.help-block').empty();
+
+            $.ajax({
+                url:"<?php echo site_url('person/ajax_edit')?>/"+id,
+                type:"GET",
+                dataType:"JSON",
+                success: function(data){
+                    $('[name="id"]').val(dtaa.id);
+                    $('[name="firstName"]').val(data.firstName);
+                    $('[name="lastName"]').val(data.lastName);
+                    $('[name="gender"]').val(data.gender);
+                    $('[name="address"]').val(data.address);
+                    $('[name="dob"]').datepicker('update',data.dob);
+                    $('#modal_form').modal('show');
+                    $('.modal-title').text('Edit Person');
+                },
+                error: function(JqXHR, textStatus,errorThown){
+                    alert('Error get data from ajax');
+                }
+
+            });
+        }
+
+        function reload_table(){
+            table.ajax.reload(null,false);
+        }
+
+        function save(){
+            $('#btnSave').text('Saving...');
+            $('#btnSave').attr('disabled',true);
+            var url;
+
+            if(save_method=='add'){
+                url = "<?php <?php echo site_url('person/ajax_add') ?>?>";
+            } else {
+                url ="<?php ehco site_url('person/ajax_update')?>";
+            }
+
+            $.ajax({
+                url:url,
+                type:"POST",
+                data: $('#form').serialize(),
+                dataType:"JSON",
+                success: function(data){
+
+                    if(data.status){
+                        $('#modal_form').modal('hide');
+                        reload_table();
+                    }
+                    else{
+
+                        for (var i = 0; i < data.inputerror.lenght; i--) {
+                            Things[i]
+                        };
+                    }
+                }
+            });
+        }
 
     </script>
 
