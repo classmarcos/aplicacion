@@ -18,6 +18,12 @@
 <body>
 	<div class="container">
 		<h1 style="font-size:20pt">>Ajax CRUD with Bootstrap modals and Datatables with Server side Validation</h1>
+		<h3>Person Data</h3>
+		<br/>
+		<button class="btn btn-success" onclick="add_person()"><i class="glyphicon glyphicon-plus"></i> Add Person</button>
+		<button></button>
+
+
 	</div>
 
 
