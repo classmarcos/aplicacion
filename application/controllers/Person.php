@@ -5,7 +5,7 @@
 
 		public function __contruct(){
 			parent::__contruct();
-			$this->load->model->('person_model','person');
+			$this->load->model('person_model','person');
 		}
 
 		public function index(){
@@ -14,7 +14,8 @@
 		}
 
 		public function ajax_list(){
-			$list=$this->person->get_datatables();
+			
+			$list = $this->person->get_datatables();
 			$data=array();
 			$no=$_POST['start'];
 			foreach ($list as $person) {
@@ -27,8 +28,10 @@
 				$row[]=$person->dob;
 
 				//add html for action
-				$row[]='<a class="btn btn-sm btn-primary" href="javascript:void()" title="Edit" onClick="edit_person('."'".$person->id."'".')"><i class="glyphicon glyphicon-pencil"></i>Edit</a>
-				<a class="btn btn-sm btn-danger" href="javascript:void()" title="Hapus" onClick="delete_person('."'".$person->id."'".')"> <i class="glyphicon glyphicon-trash"></i>Delete</a>';
+				$row[]='<a class="btn btn-sm btn-primary" href="javascript:void()" title="Edit" onClick="edit_person('."'".$person->id."'".')">
+							<i class="glyphicon glyphicon-pencil"></i>Edit</a>
+				<a class="btn btn-sm btn-danger" href="javascript:void()" title="Hapus" onClick="delete_person('."'".$person->id."'".')"> 
+							<i class="glyphicon glyphicon-trash"></i>Delete</a>';
 				
 				$data[]=$row;
 			}
@@ -45,7 +48,7 @@
 
 		public function ajax_edit($id){
 			$data=$this->person->get_by_id($id);
-			$data->dob=($data->dob == '0000-00-00') ? '' : $data-?dob; 
+			$data->dob=($data->dob == '0000-00-00') ? '' : $data->dob; 
 			echo json_encode($data);
 		}
 

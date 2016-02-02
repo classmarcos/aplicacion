@@ -47,7 +47,7 @@
 
 		function get_datatables(){
 			$this->_get_datatables_query();
-			if($_POST['length']!=-1)
+			if($_POST['length'] != -1)
 				$this->db->limit($_POST['length'],$_POST['start']);
 			$query=$this->db->get();
 			return $query->result();
