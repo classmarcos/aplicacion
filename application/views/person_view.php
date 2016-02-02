@@ -185,12 +185,38 @@
                     }
                     else{
 
-                        for (var i = 0; i < data.inputerror.lenght; i--) {
-                            Things[i]
-                        };
+                        for (var i = 0; i < data.inputerror.lenght; i++) {
+                            $('[name="'+data.inputerror[i]+'"]').parent().parent().addClass('has-error');
+                            $('[name="'+data.inputerror[i]+'"]').next().text(data.error_string[i]);
+                        }
                     }
+
+                    $('btnSave').text('save');
+                    $('btnSave').attr('disabled',false);
+                },
+                error: function(JqXHR,textStatus,errorThown){
+                    alert('Error adding/update adta');
+                    $('btnSave').text('save');
+                    $('btnSave').attr('disabled',false);
                 }
             });
+        }
+
+        function delete_person(id){
+            if(confirm('Are you sure delete this data?')){
+                $.ajax({
+                    url:"<?php echo site_url('person/ajax_delete')?>",
+                    type:"POST",
+                    dataType: "JSON",
+                    success: function(data){
+                        $('#modal_form').modal('hide');
+                        reload_table();
+                    },
+                    error: function (JqXHR,textStatus,errorThown){
+                        alert('Error deleting data');
+                    } 
+                });
+            }
         }
 
     </script>
