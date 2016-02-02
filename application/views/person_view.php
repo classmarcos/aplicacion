@@ -7,9 +7,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Ajax CRUD with Bootstrap modals and Datatables</title>
-        <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link href="assets/datatables/css/dataTables.bootstrap.css" rel="stylesheet">
-        <link href="assets/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet">
+        <link href="<?php echo base_url('assets/bootstrap/css/bootstrap.min.css')?>" rel="stylesheet">
+        <link href="<?php echo base_url('assets/datatables/css/dataTables.bootstrap.css')?>" rel="stylesheet">
+        <link href="<?php echo base_url('assets/bootstrap-datepicker/css/bootstrap-datepicker3.min.css')?>" rel="stylesheet">
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -167,9 +167,9 @@
             var url;
 
             if(save_method=='add'){
-                url = "<?php <?php echo site_url('person/ajax_add') ?>?>";
+                url = "<?php echo site_url('person/ajax_add')?>";
             } else {
-                url ="<?php ehco site_url('person/ajax_update')?>";
+                url = "<?php echo site_url('person/ajax_update')?>";
             }
 
             $.ajax({
