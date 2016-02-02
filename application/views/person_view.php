@@ -67,5 +67,25 @@
 
 
 
+    <script type="text/javascript">
+
+        var save_method;
+        var table;
+        
+        $(document).ready(function(){
+            //cargar datos al datatable
+            table = $('#table').DataTable({
+                "processing":true,
+                "serverSide":true,
+                "order":[],
+
+
+
+            });
+        });
+
+    </script>
+
+
 </body>
 </html>
