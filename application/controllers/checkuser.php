@@ -1,7 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: suarez
- * Date: 03/02/2016
- * Time: 9:43
- */
+if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+class CheckUser extends CI_Controller{
+
+}
