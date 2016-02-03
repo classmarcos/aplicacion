@@ -38,7 +38,61 @@
 		            'usuario' => $this->session->userdata('nombreusuario')
 		            )
 			);
-			$this->load->view('config/estafeta')
+			$this->load->view('config/estafeta', array('codigos' => $codigos ));
+			$this->load->view('ht/footer');
+		}
+
+		public function consult_estafeta(){
+			$user_logged = $this->lib_check_user->isSession(true);
+			$parametro =($this->input->post('id') ? $this->input->post('id') : 0);
+
+			$json_a = $this->mdl_pointaddress-> select_estafetas($parametro) ->resultado;
+
+			if($parametro !==null){
+				echo json_encode($json_a);
+				return;
+			}
+		}
+
+		public function data(){
+			return;
+			$user_logged = $this->lib_check_user->isSession(true);
+			$page = $this->input->post('page') ? $this->input->post('page') :1;
+
+			$rp = $this->input->post('rows') ? $this->input->post('rows') :50;
+			$sortname = $this->input->post('sidx') ? $this->input->post('sidx') :'';
+			$sortorder = $this->input->post('sord') ? $this->input->post('sord') :'DESC';
+			$limit = $rp * $page - $rp;
+			$offset = $rp;
+
+			$parametro = ($this->input->post('parametro') ? $his->input->post('parametro'):null);
+			$json_a = $this->mdl_pointaddress->select_estafetas($parametro)->resultado;
+
+			if($parametro !==nul){
+				echo json_encode($json_a);
+				return;
+			}
+
+			 $filter = array();
+	        $totalRecords   = count($json_a);
+	        $results        = $json_a; 
+	        $totalPages     = ceil($totalRecords / $rp);
+
+	        $json_output = array(
+	            'total'     => $totalPages,
+	            'page'      => $page,
+	            'records'   => $totalRecords,
+	            'rows'      => $results,
+	            'user_logged' => $user_logged
+	        );
+	        
+	       echo json_encode($json_output);
+		}
+
+		public function json($data=array()){
+			$this->output->set_content_type('application/json')
+				->set_output(json_encode($data));
+
 		}
 	}
 ?>
