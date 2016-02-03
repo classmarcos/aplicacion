@@ -5,12 +5,12 @@ class CheckUser extends CI_Controller{
 
 	public function __construct(){
 		parent::__construct();
-		$this-> load-> library('');
-		$this -> load -> model('');
+		$this->load->library('lib_check_user');
+		//$this -> load -> model('');
 	}
 
 	public function index(){
-		//$this-> ->
+		$this->lib_check_user->isSession(true);
 
 		$this->load->helper('form');
 		$this->load->view('ht/header',array(
@@ -18,7 +18,7 @@ class CheckUser extends CI_Controller{
 				),
 			'css' => array(
 				"comun",
-				"busquedacliente/busquedacliente",
+				"CheckUser/CheckUser",
 				"bootstrap/bootstrap",
 				"dt.min"),
 			'js'=> array(
@@ -28,15 +28,15 @@ class CheckUser extends CI_Controller{
 				"bootstrap/bootstrap.min",
 				"dt.min"),
 			)
-			'usuario' => $this ->session -> userdate('nombreusuario');
+			'usuario' => $this->session->userdate('nombreusuario');
 		);
 
-		$this -> load -> view('principal');
-		$this -> load -> view('hf/footer');
+		$this->load->view('principal');
+		$this->load->view('hf/footer');
 	}
 
 	public function data(){
-		//$user_logged=$this->;
+		$user_logged=$this->lib_check_user->isSession(true);
 
 		$parameter = ($this-> input->post('searchString')? $this->input->post('searchString') : NULL);
 		$json_a = $this -> mdl_clients->get_user_data($parameter);
@@ -55,12 +55,12 @@ class CheckUser extends CI_Controller{
 		preg_match("/^[a-zA-Z][0-9]{7}[a-zA-Z]$/", $parameter,$output_array);
 
 		if(empty($output_array[0])){
-			echo '<button type="button" onClick="window.location.href=\'' . site_url() . '/busquedacliente/index\'">Regresar</button>';
+			echo '<button type="button" onClick="window.location.href=\'' . site_url() . '/CheckUser/index\'">Regresar</button>';
 			echo $parameter." Es un dato invalido";
 			return;
 		}
 
-		//$this-> -> ();
+		$this-> lib_check_user->isSession(true,'CheckUser/redireccionando/'.$parameter);
 		$this->load->view('redireccionando', array('parameter' =>$parameter ));
 	}
 }
