@@ -90,6 +90,11 @@ class Validate extends  CI_Controller{
                     | Valida si no esta configurado necesita ser un super usuario para entrar al sistema
                     |
                     */
+
+                    $parametro = 0;
+                    $hoja = 0;
+                    $resultado[1] = -1;
+
                     if ((!isset($parametro) || $parametro < 0 || !isset($hoja) || $hoja < 0) &&  $resultado[1] == 1) redirect('pointaddress/', 'refresh');
                     elseif ((!isset($parametro) || $parametro < 0 || !isset($hoja) || $hoja < 0) &&  $resultado[1] != 1) {
                         $this->load->view('form_login', array( 'mensaje' => 'Esta cuenta en esta computadora necesita ser configurada por un Super usuario'));

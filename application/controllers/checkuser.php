@@ -11,6 +11,8 @@ class CheckUser extends CI_Controller{
 
 	public function index(){
 
+		
+
 		$this->lib_check_user->isSession(true);
 
 		$this->load->helper('form');
@@ -36,6 +38,7 @@ class CheckUser extends CI_Controller{
 
 		$this->load->view('principal');
 		$this->load->view('hf/footer');
+
 	}
 
 	public function data(){

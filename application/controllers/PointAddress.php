@@ -25,7 +25,7 @@
 		                ),
 
 		            'js' => array(
-		                "jquery-2.11.0.min",
+		                "jquery-2.1.4.min",
 		                "bootstrap/bootstrap.min",
 		                "jquery.cookie",
                 		"elementos_js",
