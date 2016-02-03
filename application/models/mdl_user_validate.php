@@ -22,7 +22,7 @@ class mdl_user_validate extends CI_Model {
 		);
 
 		$context = stream_context_create($options);
-		$result = file_get_contents($url,false,$context);
+		$result = file_get_contents($url, false, $context);
 		
 		$json_a = json_decode($result,true);
 		
