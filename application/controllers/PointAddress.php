@@ -4,15 +4,15 @@
 		public function __construct(){
 			parent::__construct();
 			$this->load->library('lib_check_user');
-			$this->load->model('mdl_pointaddress');
+			$this->load->model('mdl_point_address');
 		}
 
 		public function index(){
 
-			$this->lib_check_user->isSession(true,'PointAddress');
+			$this->lib_check_user->isSession(true,'PointAddress/');
 			if(!$this->lib_check_user->valida_perfil()) redirect('/checkUser/index','refresh');
 
-			$codigo = $this->mdl_pointaddress->select_estafetas();
+			$codigo = $this->mdl_point_address->select_estafetas();
 
 			$this->load->view('hf/header', array(
 		            'precss' => array(
@@ -46,7 +46,7 @@
 			$user_logged = $this->lib_check_user->isSession(true);
 			$parametro =($this->input->post('id') ? $this->input->post('id') : 0);
 
-			$json_a = $this->mdl_pointaddress-> select_estafetas($parametro) ->resultado;
+			$json_a = $this->mdl_point_address-> select_estafetas($parametro) ->resultado;
 
 			if($parametro !==null){
 				echo json_encode($json_a);
@@ -66,7 +66,7 @@
 			$offset = $rp;
 
 			$parametro = ($this->input->post('parametro') ? $his->input->post('parametro'):null);
-			$json_a = $this->mdl_pointaddress->select_estafetas($parametro)->resultado;
+			$json_a = $this->mdl_point_address->select_estafetas($parametro)->resultado;
 
 			if($parametro !==nul){
 				echo json_encode($json_a);
