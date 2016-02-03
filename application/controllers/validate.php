@@ -11,6 +11,7 @@ class Validate extends  CI_Controller{
 
         $this->load->helper('form');
         $this->load->library('form_validation');
+        $this->load->library('session');
 
 
         //from_validation: Libreria interna de codeignaiter para la validacion de formularios
