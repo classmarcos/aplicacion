@@ -10,25 +10,28 @@ class CheckUser extends CI_Controller{
 	}
 
 	public function index(){
+
 		$this->lib_check_user->isSession(true);
 
 		$this->load->helper('form');
 		$this->load->view('ht/header',array(
-			'precss' => array(
-				),
-			'css' => array(
-				"comun",
-				"CheckUser/CheckUser",
-				"bootstrap/bootstrap",
-				"dt.min"),
-			'js'=> array(
-				"jquery-1.11.0.min",
-				"header",
-				"principal",
-				"bootstrap/bootstrap.min",
-				"dt.min"),
-			)
-			'usuario' => $this->session->userdate('nombreusuario');
+				'precss' => array(
+					),
+				'css' => array(
+					"comun",
+					"CheckUser/CheckUser",
+					"bootstrap/bootstrap",
+					"dt.min"),
+
+				'js'=> array(
+					"jquery-2.1.4.min",
+					"header",
+					"principal",
+					"bootstrap/bootstrap.min",
+					"dt.min"),
+
+				'usuario' => $this->session->userdate('nombreusuario')
+				)
 		);
 
 		$this->load->view('principal');
@@ -43,7 +46,7 @@ class CheckUser extends CI_Controller{
 
 		$filter = array();
 		$totalRecords = count($json_a['resultado']);
-		$results = json_a['resultado'];
+		$results = $json_a['resultado'];
 
 		$json_output = array('records' =>$totalRecords , 'rows'=>$results,'user_logged'=>$user_logged);
 

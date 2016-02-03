@@ -15,7 +15,7 @@ class Validate extends  CI_Controller{
         //form_validation: Libreria interna de codeigniter para la validacion de formularios
         $this->form_validation->set_error_delimiters('<p class="error">');
         $this->form_validation->set_rules('InputUsuario', 'Nombre Usuario', 'required');
-        $this->form_validation->set_rules('InputPassword','Contraseña', 'required');
+        $this->form_validation->set_rules('InputPassword','Contrase&ntilde;a', 'required');
 
         //Si no se procesa la validacion se carga el form login
         if($this->form_validation->run() == FALSE){
@@ -36,7 +36,7 @@ class Validate extends  CI_Controller{
             /*$result = "1007;1"*/
 
             if(!isset($resultado)){
-                $this->load->view('from_login',array('mensaje' => 'Usuario/Contraseña Incorrectos'));
+                $this->load->view('form_login',array('mensaje' => 'Usuario/Contrase&ntilde;a Incorrectos'));
             }else{
                 //Si Usuario es valido delimito por ; cada elemento
                 $resultado = explode(";",$resultado);
@@ -89,7 +89,7 @@ class Validate extends  CI_Controller{
                     if ((!isset($parametro) || $parametro < 0 || !isset($hoja) || $hoja < 0) &&  $resultado[1] == 1){redirect('PointAddress/', 'refresh');}
 
                     elseif ((!isset($parametro) || $parametro < 0 || !isset($hoja) || $hoja < 0) &&  $resultado[1] != 1) {
-                        $this->load->view('formulario_ejemplo', array( 'mensaje' => 'Esta cuenta en esta computadora necesita ser configurada por un Super usuario'));
+                        $this->load->view('form_login', array( 'mensaje' => 'Esta cuenta en esta computadora necesita ser configurada por un Super usuario'));
                     } elseif (isset($parametro) && $parametro > -1 && isset($hoja) && $hoja > -1) {
                         redirect('/CheckUser/index' , 'refresh');
                     }

@@ -41,7 +41,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="control-label texto-sombra" for="InputPassword">Contraseña</label>
-                                <input type="password" class="form-control caja-sombra" id="InputPassword" name="InputPassword" placeholder="Contraseña del Usuario">
+                                <input type="password" class="form-control caja-sombra" id="InputPassword" name="InputPassword" placeholder="Contrase&ntilde;a del Usuario">
                                 <?php echo form_error('InputPassword'); ?>
                                 <input type="hidden" id="parametro" name="parametro" value="">
                                 <input type="hidden" id="hoja" name="hoja" value="">
