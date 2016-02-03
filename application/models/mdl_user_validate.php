@@ -11,7 +11,7 @@ class mdl_user_validate extends CI_Model {
 	{
 		$datos['contrasena'] = $datos['contrasena'] ? $datos['contrasena'] : "0";
 		$datos['usuario'] = $datos['usuario'] ? $datos['usuario'] : "0";
-		$url = 'http://127.0.0.1:8080/tcentral/index.php/main/login'; //'http://tcentral.ddns.net:8080/Clientela/db_ODC.php'; http://tcentral.ddns.net:8080/Clientela/PruebaDBp.php
+		$url = 'http://192.168.10.77:8080/tcentral/index.php/main/login'; //'http://tcentral.ddns.net:8080/Clientela/db_ODC.php'; http://tcentral.ddns.net:8080/Clientela/PruebaDBp.php
 		$data = array('usuario' => $datos['usuario'], 'contrasena' => $datos['contrasena']);
 
 		$options = array(
@@ -22,15 +22,10 @@ class mdl_user_validate extends CI_Model {
 			)
 		);
 
-<<<<<<< HEAD
+
 		$context = stream_context_create($options);
 		$result = file_get_contents($url, false, $context);
 		
-=======
-		$context  = stream_context_create($options);
-		$result = file_get_contents($url, false, $context);
-
->>>>>>> origin/master
 		$json_a = json_decode($result,true);
 
 		var_dump( $json_a);
