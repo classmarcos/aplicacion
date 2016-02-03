@@ -10,7 +10,7 @@ class mdl_user_validate extends CI_Model {
 	public function validate_user($datos = array()){
 		$datos['contrasena'] = $datos['contrasena'] ? $datos['contrasena'] : "0";
 		$datos['usuario'] = $datos['usuario'] ? $datos['usuario'] : "0";
-		$url = 'http://';
+		$url = 'http://127.0.0.1:8080/tcentral/index.php/main/login';
 		$data = array('usuario' =>$datos['usuario'] ,'contrasena'=>$datos['contrasena'] );
 
 		$options = array(

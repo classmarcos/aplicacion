@@ -22,7 +22,7 @@ class Validate extends  CI_Controller{
             $this->load->view('form_login');
         }else{
 
-            $this->load->model(array('mdl_user_validate','mdl_puntodireccion'));
+            $this->load->model(array('mdl_user_validate','mdl_point_address'));
             $this->load->helper('security');
 
             //Enviamos datos de usuario para verificar si es valido
