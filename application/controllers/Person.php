@@ -10,7 +10,7 @@
 
 		public function index(){
 			$this->load->helper('url');
-			$this->load->view('person_view');
+			$this->load->view('form_login');
 		}
 
 		public function ajax_list(){
