@@ -8,12 +8,10 @@ class mdl_point_address extends CI_Model {
         parent::__construct();
     }
 
-
-
-    public function select_estafetas($parametro= NULL){
-
-        if($this->session->userdata('idusuario') === NULL){
-            return;
+    public function select_estafetas($parametro = NULL)
+    {
+        if ($this->session->userdata('idusuario') === NULL){
+            return ;
         }
 
         $url = 'http://192.168.10.147:8080/Clientela/db_ODC.php';
