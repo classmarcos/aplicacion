@@ -26,7 +26,7 @@ class CheckUser extends CI_Controller{
 					"dt.min"),
 
 				'js'=> array(
-					"jquery-2.1.4.min",
+					"jquery-1.11.0.min",
 					"header",
 					"principal",
 					"bootstrap/bootstrap.min",
@@ -42,7 +42,7 @@ class CheckUser extends CI_Controller{
 	}
 
 	public function data(){
-		$user_logged=$this->lib_check_user->isSession(true);
+		$user_logged=$this->lib_check_user->isSession(TRUE);
 
 		$parameter = ($this-> input->post('searchString')? $this->input->post('searchString') : NULL);
 		$json_a = $this -> mdl_clients->get_user_data($parameter);
@@ -51,7 +51,11 @@ class CheckUser extends CI_Controller{
 		$totalRecords = count($json_a['resultado']);
 		$results = $json_a['resultado'];
 
-		$json_output = array('records' =>$totalRecords , 'rows'=>$results,'user_logged'=>$user_logged);
+		$json_output = array(
+			'records' =>$totalRecords ,
+			'rows'=>$results,
+			'user_logged'=>$user_logged
+		);
 
 		echo json_encode($json_output);
 
@@ -61,12 +65,12 @@ class CheckUser extends CI_Controller{
 		preg_match("/^[a-zA-Z][0-9]{7}[a-zA-Z]$/", $parameter,$output_array);
 
 		if(empty($output_array[0])){
-			echo '<button type="button" onClick="window.location.href=\'' . site_url() . '/CheckUser/index\'">Regresar</button>';
+			echo '<button type="button" onClick="window.location.href=\'' . site_url() . '/checkuser/index\'">Regresar</button>';
 			echo $parameter." Es un dato invalido";
 			return;
 		}
 
-		$this-> lib_check_user->isSession(true,'CheckUser/redireccionando/'.$parameter);
+		$this-> lib_check_user->isSession(true,'checkuser/redireccionando/'.$parameter);
 		$this->load->view('redireccionando', array('parameter' =>$parameter ));
 	}
 }
