@@ -23,7 +23,7 @@ class lib_check_user{
                         'name'   => 'redirect',
                         'value'  =>  $from_url,
                         'expire' => '120', //2 minutos para borrar
-                        'prefix' => 'telenordci_',
+                        'prefix' => 'aplicacion_',
                         'path'   => '/',
                         'secure' => false
                     );

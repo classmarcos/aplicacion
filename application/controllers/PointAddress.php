@@ -9,10 +9,12 @@
 
 		public function index(){
 
+			//$this->load->view('person_view');
+
 			$this->lib_check_user->isSession(true,'PointAddress/');
 			if(!$this->lib_check_user->valida_perfil()) redirect('/checkUser/index','refresh');
 
-			$codigo = $this->mdl_point_address->select_estafetas();
+			$codigos = $this->mdl_point_address->select_estafetas();
 
 			$this->load->view('hf/header', array(
 		            'precss' => array(
@@ -38,6 +40,7 @@
 		            'usuario' => $this->session->userdata('nombreusuario')
 		            )
 			);
+
 			$this->load->view('config/estafeta', array('codigos' => $codigos ));
 			$this->load->view('ht/footer');
 		}
