@@ -5,6 +5,7 @@ class Validate extends  CI_Controller{
 
     public function __construct(){
         parent::__construct();
+
     }
 
     public function form_login(){
@@ -12,6 +13,7 @@ class Validate extends  CI_Controller{
         $this->load->helper('form');
         $this->load->library('form_validation');
         $this->load->library('session');
+       
 
 
         //from_validation: Libreria interna de codeignaiter para la validacion de formularios
@@ -144,12 +146,13 @@ class Validate extends  CI_Controller{
     }
 
     public function logout() {
+        $this->load->library('session');
         echo "saliendo...";
-        $this->load->library(array('funciones', 'chequeousuario'));
+        $this->load->library(array('lib_functions', 'lib_check_user'));
         if ($this->session->userdata('idusuario') !== NULL) {
-            $this->funciones->limpia_sesion();
+            $this->lib_functions->clean_session();
         }
-        $this->chequeousuario->estara_en_sesion(true);
+        $this->lib_check_user->isSession(TRUE);
     }
 
 }

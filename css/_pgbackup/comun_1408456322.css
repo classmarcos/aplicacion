@@ -1,0 +1,17 @@
+#div-foto {
+  background-image: url('file:///C:/Users/Programaccion%20web/Desktop/fotos%20personas%20telenord/IMG_20140722_082059563.jpg');
+  background-repeat: no-repeat;
+  height: 200px;
+  background-size: 1400px 900px;
+  background-position: 0% 28%;
+}
+#div-foto H3 {
+  position: relative;
+  background-color: rgba(57, 151, 52, 0.65);
+  color: #ffffff;
+  top: 86.5%;
+  font-weight: bold;
+}
+.row-space {
+  margin-top: 20px;
+}

@@ -1,0 +1,27 @@
+$Telenord-Verde: rgba(57, 151, 52, 0.65);
+$Telenord-Rojo: rgba(151, 52, 52, 0.51);
+$Sombra-Color: rgba(0, 0, 0, 0.21);
+
+
+#div-foto
+{
+    background-image: url('../images/configuracion_punto_pago.jpg');
+    background-repeat: no-repeat;
+    height: 200px;
+    background-position: 0% 27%;
+}
+
+#div-foto H3
+{
+    position: relative;
+    background-color: $Telenord-Verde;
+    color: #ffffff;
+    top: 86.5%;
+    font-weight: bold;
+}
+
+.row-space
+{
+    margin-top: 20px;
+}
+

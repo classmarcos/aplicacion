@@ -1,0 +1,26 @@
+
+.row{
+	margin-top:2em;
+	width: 99.9%
+}
+
+#btn_aceptar{
+	margin-top: 1em;
+}
+
+.jumbotron{
+	 text-align: center;
+	 margin-top: 1em;
+}
+
+.jumbotron h1{
+	font-family: 'Sonsie One', cursive;
+}
+
+.panel-heading{
+	text-align:center;
+}
+.chosen-container{
+	height: 34px;
+}
+

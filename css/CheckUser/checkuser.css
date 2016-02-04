@@ -1,0 +1,32 @@
+#div-foto {
+  background-image: url('/telenordci/imagess/busquedaclientes1.jpg');
+  background-size: 1600px 900px;
+  background-position: 35% 20%;
+}
+
+.BADGE-color {
+  background-color: #5cb85c !important;
+}
+
+table#info-tabla tbody tr:hover {
+  cursor: pointer; 
+  cursor: hand; 
+}
+
+/*#table-wrapper {
+  position:relative;
+}
+
+#table-scroll {
+  height:300px;
+  overflow:auto;  
+  margin-top:20px;
+}
+
+#table-wrapper table {
+  width:100%;
+}*/
+
+
+
+

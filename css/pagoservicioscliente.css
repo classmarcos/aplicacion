@@ -1,0 +1,24 @@
+.red{
+	color: red;
+    font-weight: bold;
+}
+
+#div-foto {
+  background-image: url('/telenordci/imagess/detalleclientes1.jpg');
+  background-size: 1400px 900px;
+  background-position: 0% 28%;
+}
+
+#pn-g
+{
+    overflow: auto;
+    display: block;
+    max-height: 218px;
+}
+
+.negro {
+	color: black;
+}
+
+
+

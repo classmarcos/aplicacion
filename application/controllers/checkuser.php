@@ -6,6 +6,8 @@ class CheckUser extends CI_Controller{
 	public function __construct(){
 		parent::__construct();
 		$this->load->library('lib_check_user');
+		$this->load->library('session');
+		//self::$CI = &get_instance();
 		//$this -> load -> model('');
 	}
 
@@ -13,15 +15,15 @@ class CheckUser extends CI_Controller{
 
 		
 
-		$this->lib_check_user->isSession(true);
+		$this->lib_check_user->isSession(false);
 
 		$this->load->helper('form');
-		$this->load->view('ht/header',array(
+		$this->load->view('hf/header',array(
 				'precss' => array(
 					),
 				'css' => array(
 					"comun",
-					"CheckUser/CheckUser",
+					"checkUser/checkuser",
 					"bootstrap/bootstrap",
 					"dt.min"),
 
@@ -32,7 +34,7 @@ class CheckUser extends CI_Controller{
 					"bootstrap/bootstrap.min",
 					"dt.min"),
 
-				'usuario' => $this->session->userdate('nombreusuario')
+				'usuario' => $this->session->userdata('nombreusuario')
 				)
 		);
 

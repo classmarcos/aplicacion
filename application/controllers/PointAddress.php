@@ -9,7 +9,7 @@
 
 		public function index(){
 
-			//$this->load->view('person_view');
+			$this->load->view('person_view');
 
 			$this->lib_check_user->isSession(true,'PointAddress/');
 			if(!$this->lib_check_user->valida_perfil()) redirect('/checkUser/index','refresh');

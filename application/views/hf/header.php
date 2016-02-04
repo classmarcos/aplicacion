@@ -114,7 +114,7 @@
             ?>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <p class="navbar-text"><?php if (empty($usuario)) echo "Usuario "; else echo ucfirst($usuario). " " ;?><a href="<?php echo site_url() . '/validacion/logout/';?>" class="navbar-link">Salir Sesíon</a></p>
+            <p class="navbar-text"><?php if (empty($usuario)) echo "Usuario "; else echo ucfirst($usuario). " " ;?><a href="<?php echo site_url() . '/validate/logout/';?>" class="navbar-link">Salir Sesíon</a></p>
           </ul>
         </div><!--/.nav-collapse -->
     </div>

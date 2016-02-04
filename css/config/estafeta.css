@@ -1,0 +1,18 @@
+#div-foto {
+  background-image: url('/telenordci/imagess/configuracion_punto_pago.jpg');
+  background-position: 35% 20%;
+}
+
+#ttabla{
+	max-height: 150px;
+	overflow-y: auto;
+}
+
+#btn_confirmar_estafeta{
+	margin-top: 10px;
+}
+
+div#ttabla table tbody tr:hover {
+  cursor: pointer; 
+  cursor: hand; 
+}

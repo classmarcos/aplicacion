@@ -1,0 +1,15 @@
+#div-foto {
+  background-repeat: no-repeat;
+  height: 200px;
+
+}
+#div-foto H3 {
+  position: relative;
+  background-color: rgba(57, 151, 52, 0.65);
+  color: #ffffff;
+  top: 86.5%;
+  font-weight: bold;
+}
+.row-space {
+  margin-top: 20px;
+}
