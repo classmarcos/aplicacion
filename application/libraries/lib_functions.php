@@ -30,6 +30,7 @@
 							 'impresion_Fax' =>'');
 			//self::$CI->session->unset_userdata($array_items);
 			self::$CI->session->sess_destroy($array_items);
+			 redirect($redirect_url ? $redirect_url : base_url(), 'refresh');
 		}
 	}
 ?>

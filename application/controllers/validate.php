@@ -151,6 +151,7 @@ class Validate extends  CI_Controller{
         $this->load->library(array('lib_functions', 'lib_check_user'));
         if ($this->session->userdata('idusuario') !== NULL) {
             $this->lib_functions->clean_session();
+           
         }
         $this->lib_check_user->isSession(TRUE);
     }
