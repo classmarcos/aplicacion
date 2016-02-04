@@ -134,7 +134,7 @@ class Validate extends  CI_Controller{
 
         }
 
-        echo json_encode(array("validate"=>$resultado,"redirect"=>$this->input->cookie('telenordci_redirect', TRUE)));
+        echo json_encode(array("validate"=>$resultado,"redirect"=>$this->input->cookie('aplicacion_redirect', TRUE)));
         //echo $this->input->cookie('telenordci_redirect', TRUE);
     }
 

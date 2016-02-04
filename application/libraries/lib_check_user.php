@@ -12,7 +12,7 @@ class lib_check_user{
     public function isSession($user_out = false,$from_url = null, $redirect_url = null){
         self::$CI->load->library('session');
 
-        if (self::$CI->session->userdata('idusuario') && self::$CI->session->userdata('ip_address')) {
+        if (self::$CI->session->userdata('idusuario') ) {
             return TRUE;
         }else{
 

@@ -15,7 +15,7 @@ class CheckUser extends CI_Controller{
 
 		
 
-		$this->lib_check_user->isSession(false);
+		$this->lib_check_user->isSession(true);
 
 		$this->load->helper('form');
 		$this->load->view('hf/header',array(
